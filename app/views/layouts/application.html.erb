@@ -22,8 +22,10 @@
   </div>
   <nav>
     <ul>
-      <li>List Jobs</li>
-      <li>Add Jobs</li>
+      <li>View Jobs</li>
+      <% if admin_signed_in? %>
+        <li>Add Jobs</li>
+      <% end %>
     </ul>
   </nav>
 </header>
