@@ -1,4 +1,6 @@
 Besthiring::Application.routes.draw do
+  devise_for :admins
+
   get "jobs/index"
 
   # The priority is based upon order of creation:

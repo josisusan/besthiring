@@ -7,6 +7,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header>
+  <div id="logo">
+    <%= link_to "BestHiring", jobs_path %>
+  </div>
+  <div id="user_auth_nav">
+    <% if admin_signed_in? %>
+      <%= link_to "Edit Profile", edit_admin_registration_path %> |
+      <%= link_to "Log Out", destroy_admin_session_path %>
+    <% else %>
+      <%= link_to "Log In", new_admin_session_path %> | 
+      <%= link_to "Sign Up", new_admin_session_path %>
+    <% end %>
+  </div>
+  <nav>
+    <ul>
+      <li>List Jobs</li>
+      <li>Add Jobs</li>
+    </ul>
+  </nav>
+</header>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 
 <%= yield %>
 
