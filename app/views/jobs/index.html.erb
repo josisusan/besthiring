@@ -1,2 +1,27 @@
 <h1>Jobs#index</h1>
 <p>Find me in app/views/jobs/index.html.erb</p>
+<table>
+  <tr>
+    <th>Job title</th>
+    <th>Posted By</th>
+    <th><th>
+    <% if admin_signed_in? %>
+      <th></th>
+      <th></th>
+    <% end %>
+  </tr>
+  <% @jobs.each do |job| %>
+    <tr>
+      <td>
+        <%= link_to job.title, job_path(job.id) %>
+      </td>
+      <% creator = admin_signed_in? ? "me" : job.admin.email %>
+      <td><%= creator %></td>
+      <td><%= link_to "View", job_path(job.id) %></td>
+      <% if admin_signed_in? %>
+        <td><%=  link_to "Edit", edit_job_path(job.id) %></td>
+        <td><%=  link_to "Delete", :method => :delete, :confirm => "Are you sure?" %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

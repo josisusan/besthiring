@@ -1,7 +1,6 @@
 Besthiring::Application.routes.draw do
   devise_for :admins
-
-  get "jobs/index"
+  devise_for :admins do get '/admins/sign_out' => 'devise/sessions#destroy' end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
