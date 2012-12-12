@@ -24,14 +24,15 @@
     <ul>
       <li>View Jobs</li>
       <% if admin_signed_in? %>
-        <li>Add Jobs</li>
+        <li><%= link_to "Add Jobs", new_job_path%></li>
       <% end %>
     </ul>
   </nav>
 </header>
+<div id = "notification">
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-
+</div>
 <%= yield %>
 
 </body>
