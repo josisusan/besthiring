@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121213025708) do
+ActiveRecord::Schema.define(:version => 20121216153404) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -34,14 +34,14 @@ ActiveRecord::Schema.define(:version => 20121213025708) do
   create_table "applications", :force => true do |t|
     t.text     "why_you"
     t.text     "why_us"
-    t.integer  "job_id_id"
-    t.integer  "user_id_id"
+    t.integer  "job_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
 
-  add_index "applications", ["job_id_id"], :name => "index_applications_on_job_id_id"
-  add_index "applications", ["user_id_id"], :name => "index_applications_on_user_id_id"
+  add_index "applications", ["job_id"], :name => "index_applications_on_job_id_id"
+  add_index "applications", ["job_id"], :name => "index_applications_on_user_id_id"
 
   create_table "jobs", :force => true do |t|
     t.string   "title"

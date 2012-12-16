@@ -10,9 +10,10 @@ class ApplicationsController < ApplicationController
   end
 
   def create
+    @job = Job.find(params[:job_id])
     @application = Application.new(params[:application])
-    @application.user_id = current_user
-    @application.job_id = params[:job_id]
+    @application.user = current_user
+    @application.job = @job
     if @application.save
       
       redirect_to job_path(params[:job_id]), :notice => "Job Application Send Successfully"
