@@ -1,7 +1,12 @@
 Besthiring::Application.routes.draw do
+
+  get "profiles/index"
+
   devise_for :admins
   devise_for :admins do get '/admins/sign_out' => 'devise/sessions#destroy' end
 
+  devise_for :users
+  devise_for :users do get '/users/sign_out' => 'devise/sessions#destroy' end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -41,7 +46,12 @@ Besthiring::Application.routes.draw do
   #       get 'recent', :on => :collection
   #     end
   #   end
-  resources :jobs
+  resources :jobs do
+    resources :applications
+  end
+  resources :users do
+    resource :profile
+  end
   # Sample resource route within a namespace:
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController

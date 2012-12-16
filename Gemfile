@@ -10,6 +10,7 @@ gem 'devise'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'simple_form'
+gem 'kaminari'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -25,6 +26,11 @@ end
 
 gem 'jquery-rails'
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

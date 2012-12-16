@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  why_you: MyText
+  why_us: MyText
+  job_id: 
+  user_id: 
+
+two:
+  why_you: MyText
+  why_us: MyText
+  job_id: 
+  user_id: 

@@ -1,3 +1,4 @@
 JobsC#show
 <%= @job.title %>
 <%= @job.description %>
+<%= link_to "Apply this Job!", new_job_application_path(@job.id)%>

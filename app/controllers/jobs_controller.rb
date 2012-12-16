@@ -1,12 +1,13 @@
 class JobsController < ApplicationController
   before_filter :authenticate_admin!, :except => [:show, :index]
   
+  
   def index
     if current_admin
       @current_admin = current_admin.id
-      @jobs = Job.where('admin_id = '+@current_admin.to_s )
+      @jobs = Job.where(:admin_id => @current_admin.to_s).order("created_at DESC").page(params[:page]).per(5) 
     else
-      @jobs = Job.all 
+      @jobs = Job.order("created_at DESC").page(params[:page]).per(5) 
     end 
   end
 
